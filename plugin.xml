@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-accelometer" version="0.1.0">
+    <name>Accelometer</name>
+    <description>This plugin allows you to get data from existing Accelometer in the device</description>
+    <license>MIT</license>
+    <keywords>Accelometer,Shake</keywords>
+	 <repo>https://github.com/DeshanKTD/cordova-plugin-accelometer.git</repo>
+   
+ 	<js-module src="www/accelometer.js" name="Acceolometer">
+        <clobbers target="window.plugin.accelometer" />
+    </js-module>
+
+	<!-- andorid -->
+    <platform name="andorid">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Accelometer">
+                <param name="android-package" value="org.apache.cordova.accelometer"/>
+            </feature>
+
+            <source-file src="src/android/Accelometer.java" target-dir="src/org/apache/cordova/accelometer" />
+        </config-file>
+	</platform>
+</plugin>
