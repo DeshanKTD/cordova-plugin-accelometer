@@ -8,7 +8,7 @@
     <keywords>Accelometer,Shake</keywords>
 	 <repo>https://github.com/DeshanKTD/cordova-plugin-accelometer.git</repo>
    
- 	<js-module src="www/accelometer.js" name="Acceolometer">
+ 	<js-module src="www/accelometer.js" name="Accelometer">
         <clobbers target="window.plugin.accelometer" />
     </js-module>
 
