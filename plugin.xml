@@ -15,7 +15,7 @@
     </js-module>
 
 	<!-- andorid -->
-    <platform name="andorid">
+    <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Accelometer">
                 <param name="android-package" value="org.apache.cordova.accelometer.Accelometer"/>
