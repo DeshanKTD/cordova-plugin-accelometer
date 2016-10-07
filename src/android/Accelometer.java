@@ -102,6 +102,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     		//this should only call when listner is running
     		if (this.status != Accelometer.RUNNING){
     			int val = this.start();
+    			System.out.println("In the function");
 
     			if(val == Accelometer.FAILED_TO_START){
     				callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.IO_EXCEPTION, Accelometer.FAILED_TO_START));

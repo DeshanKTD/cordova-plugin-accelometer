@@ -18,7 +18,7 @@
     <platform name="andorid">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Accelometer">
-                <param name="android-package" value="org.apache.cordova.accelometer"/>
+                <param name="android-package" value="org.apache.cordova.accelometer.Accelometer"/>
             </feature>
 
             <source-file src="src/android/Accelometer.java" target-dir="src/org/apache/cordova/accelometer" />
