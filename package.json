@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-accelometer",
+  "version": "1.0.0",
+  "description": "Cordova Accelerometer Plugin",
+  "cordova": {
+    "id": "cordova-plugin-accelometer",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeshanKTD/cordova-plugin-accelometer"
+  },
+  "keywords": [
+    "cordova",
+    "accelerometer",
+    "accelometer",
+    "ecosystem:cordova",
+    "acceleration",
+    "device-motion",
+    "speed",
+    "cordova-android"
+  ],
+  "author": "Deshan Kalupahana",
+  "license": "MIT"
+}
