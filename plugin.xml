@@ -3,6 +3,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-accelometer" version="0.1.0">
     <name>Accelometer</name>
+    <author>Deshan Kalupahana</author>
+    
     <description>This plugin allows you to get data from existing Accelometer in the device</description>
     <license>MIT</license>
     <keywords>Accelometer,Shake</keywords>
@@ -20,6 +22,7 @@
             </feature>
 
             <source-file src="src/android/Accelometer.java" target-dir="src/org/apache/cordova/accelometer" />
+
         </config-file>
 	</platform>
 </plugin>
