@@ -42,7 +42,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     float y;					//acceleration in y axis
     float z;					//acceleration in z axis
     long timeStamp;				//time of most recent value
-    long lastAccessTime			//time the value was last requested
+    long lastAccessTime;			//time the value was last requested
 
     float ox,oy,oz;
 
@@ -271,7 +271,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
      */
 
     private void setStatus(int status){
-    	this.status = status
+    	this.status = status;
     }
 
     /**
