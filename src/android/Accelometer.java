@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import.java.util.Math;
+import java.util.Math;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -110,7 +110,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 
     			//set timeout call back on main thread if failed to start
     			Handler handler = new Handler(Looper.getMainLooper());
-    			handler.postDelayed(new Runneble() {
+    			handler.postDelayed(new Runnable() {
     				public void run() {
     					Accelometer.this.timeout();
     				}
@@ -156,9 +156,9 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 		Sensor sensor = aSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
 		// if sensor found, register as listner
-		if (mSensor != null){
+		if (aSensor != null){
 			this.aSensor = sensor;
-			this.sensorManager.registerListener(this, this.mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+			this.asensorManager.registerListener(this, this.aSensor, SensorManager.SENSOR_DELAY_NORMAL);
 			this.lastAccessTime = System.currentTimeMillis();
 			this.setStatus(Accelometer.STARTING);
 		}
@@ -220,9 +220,9 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 		this.y = Math.abs(oy-ny);
 		this.z = Math.abs(oz-nz);
 
-		if (this.x < NOISE) this.x = float(0.0);
-		if (this.y < NOISE) this.y = float(0.0);
-		if (this.z < NOISE) this.z = float(0.0);
+		if (this.x < NOISE) this.x = (float)0.0;
+		if (this.y < NOISE) this.y = (float)0.0;
+		if (this.z < NOISE) this.z = (float)0.0;
 
 		ox = nx;
 		oy = ny;
@@ -283,7 +283,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 
     	obj.put("x", this.x);
     	obj.put("y", this.y);
-    	onj.put("z", this.z);
+    	obj.put("z", this.z);
 
     	return obj;
 

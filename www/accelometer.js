@@ -22,7 +22,7 @@ Accelometer.prototype = {
 
 		if (cordova.platformId === 'android') {
 			timers[id] = window.setInterval(function() {
-          		accelometer.getReading(successCallback, errorCallback);
+          		accelometer.getReading(onSuccessCallback, onErrorCallback);
       		}, 40); // every 40 ms (25 fps)
 		}
 		else {
