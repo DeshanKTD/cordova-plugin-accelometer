@@ -35,6 +35,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     public static int FAILED_TO_START = 3;
 
     public long TIMEOUT = 30000;		//shutdown the listner
+    public float NOISE = (float)1.0; 
 
     int status;					//running status listner
     float x;					//acceleration in x axis
@@ -43,6 +44,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     long timeStamp;				//time of most recent value
     long lastAccessTime			//time the value was last requested
 
+    float ox,oy,oz;
 
     private SensorManager aSensorManager; 	//sensor manager
     Sensor aSensor;							//Acceleration sensor
@@ -54,6 +56,9 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     	this.x = 0;
     	this.y = 0;
     	this.z = 0;
+    	this.ox = 0;
+    	this.oy = 0;
+    	this.oz = 0;
     	this.timeStamp = 0;
     	this.watchContexts = new ArrayList<CallbackContext>();
     	this.setStatus(Accelometer.STOPPED);
@@ -207,9 +212,21 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 
 		this.timeStamp = System.currentTimeMillis();
 
-		this.x = event.values[0];
-		this.y = event.values[1];
-		this.z = event.values[2];
+		float nx = event.values[0];
+		float ny = event.values[1];
+		float nz = event.values[2];
+
+		this.x = Math.abs(ox-nx);
+		this.y = Math.abs(oy-ny);
+		this.z = Math.abs(oz-nz);
+
+		if (this.x < NOISE) this.x = float(0.0);
+		if (this.y < NOISE) this.y = float(0.0);
+		if (this.z < NOISE) this.z = float(0.0);
+
+		ox = nx;
+		oy = ny;
+		oz = nz;
 
 		// If heading hasn't been read for TIMEOUT time, then turn off compass sensor to save power
         if ((this.timeStamp - this.lastAccessTime) > this.TIMEOUT) {
