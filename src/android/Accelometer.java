@@ -79,7 +79,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 
     public void initialize(CordovaInterface cordova, CordovaWebView webView){
     	super.initialize(cordova,webView);
-        this.asensorManager = (SensorManager) cordova.getActivity().getSystemService(Context.SENSOR_SERVICE);
+        this.asensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
     }
 
