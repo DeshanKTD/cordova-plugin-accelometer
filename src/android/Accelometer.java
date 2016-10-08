@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Math;
+import java.lang.Math;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -77,9 +77,9 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
     // Corodova Plugin Methods
     //--------------------------------------------------------------
 
-    public void initialize(CorodovaInterface cordova, CordovaWebView webView){
+    public void initialize(CordovaInterface cordova, CordovaWebView webView){
     	super.initialize(cordova,webView);
-    	this.sensorManager = (SensorManager) cordova.getActivity().getSystemService(Context.SENSOR_SERVICE);
+        this.asensorManager = (SensorManager) cordova.getActivity().getSystemService(Context.SENSOR_SERVICE);
 
     }
 
@@ -153,7 +153,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 		}
 
 		// get accelorometer from sensor manager
-		@SuppressWarnings
+		@SuppressWarnings("deprecation")
 		Sensor sensor = aSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
 		// if sensor found, register as listner
@@ -179,7 +179,7 @@ public class Accelometer extends CordovaPlugin implements SensorEventListener{
 
 	public void stop(){
 		if (this.status != Accelometer.STOPPED){
-			this.aSensorManager.unregisterListner(this);
+			this.aSensorManager.unregisterListener(this);
 		}
 		this.setStatus(Accelometer.STOPPED);
 	}
